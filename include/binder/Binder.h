@@ -17,7 +17,13 @@
 #ifndef ANDROID_BINDER_H
 #define ANDROID_BINDER_H
 
+#if __cplusplus >= 201103L
+#include <atomic>
+typedef std::atomic<uintptr_t> atomic_uintptr_t;
+#else
 #include <stdatomic.h>
+#endif
+
 #include <stdint.h>
 #include <binder/IBinder.h>
 
